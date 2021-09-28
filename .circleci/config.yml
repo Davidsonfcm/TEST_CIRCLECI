@@ -18,7 +18,7 @@ jobs:
             DEBIAN_FRONTEND=noninteractive apt-get install -yq nodejs && \
             DEBIAN_FRONTEND=noninteractive apt-get install -yq  npm && \
             DEBIAN_FRONTEND=noninteractive apt-get install -yq git  && \
-            DEBIAN_FRONTEND=noninteractive apt-get install -yq docker-ce && \
+            DEBIAN_FRONTEND=noninteractive apt-get install -yq docker && \
             service docker start
 
       - run:
