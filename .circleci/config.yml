@@ -1,9 +1,13 @@
 version: 2
+
+defaults: &defaults
+  working_directory: ~/xewards-delivery-hub-dispatcher
+  docker:
+    - image: alpine:3.8
+
 jobs:
   build:
-    docker:
-      - image: alpine:3.7
-
+    <<: *defaults
     steps:
       - checkout
 
