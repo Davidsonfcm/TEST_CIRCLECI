@@ -16,10 +16,10 @@ jobs:
           command: |
             apt-get update && \
             DEBIAN_FRONTEND=noninteractive && \
-            apt-get install nodejs -y && \
-            apt-get install  npm -y && \
-            aapt-get install git -y && \
-            apt-get install docker -y  && \
+            apt-get install -y nodejs && \
+            apt-get install -y  npm && \
+            aapt-get install -y git  && \
+            apt-get install -y docker-ce && \
             service docker start
 
       - run:
