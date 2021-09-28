@@ -1,9 +1,9 @@
-version: 2.1
+version: 2
 
 defaults: &defaults
   working_directory: ~/teste-circleci
   docker:
-    - image: alpine:3.8
+    - image: alpine:latest
 
 jobs:
   build:
@@ -25,3 +25,10 @@ jobs:
       - run:
           name: Executar test
           command: npm test
+
+workflows:
+  version: 2
+  automated-deploy-process:
+    jobs:
+      - build:
+          context: org-global
