@@ -1,7 +1,7 @@
 version: 2
 
 defaults: &defaults
-  working_directory: ~/teste-circleci
+  working_directory: ~/test-circleci
   docker:
     - image: alpine:latest
 
@@ -15,8 +15,9 @@ jobs:
           name: Instalar NODE e NPM
           command: |
             apk update && \
-            apk add --update nodejs && \
-            apk add --update npm
+            apk add nodejs && \
+            apk add npm && \
+            apk add git
 
       - run:
           name: Instalar dependências
@@ -27,15 +28,22 @@ jobs:
           command: npm test
 
       - run:
+          name: Criar tag no git
+          command: |
+            
+
+      - run:
           name: Build Image
           command: |
             TAG=$(node -p -e "require('./package.json').version")
             GIT_TAG=$(git tag -l ${TAG});            
             docker login -u ${DOCKER_USER} -p ${DOCKER_PASSWORD}
+            git tag ${TAG}
             echo "construindo imagem `${IMAGE}:${TAG}`" 
             docker build -t ${DOCKER_IMAGE}:${TAG} .
             echo "publicando imagem `${IMAGE}:${TAG}`" 
             docker push ${DOCKER_IMAGE}:${TAG}
+            git push origin ${TAG}
 
 workflows:
   version: 2
