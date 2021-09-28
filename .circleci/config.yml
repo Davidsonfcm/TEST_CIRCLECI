@@ -8,6 +8,10 @@ jobs:
       - checkout
 
       - run:
+          name: Instalar NODE e NPM
+          command: apk add --update nodejs npm
+
+      - run:
           name: Instalar dependências
           command: npm install
 
