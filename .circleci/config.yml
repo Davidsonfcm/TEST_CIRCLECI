@@ -9,7 +9,7 @@ jobs:
 
       - run:
           name: Instalar NODE e NPM
-          command: apk add --update nodejs npm
+          command: apk add --update nodejs nodejs-npm
 
       - run:
           name: Instalar dependências
