@@ -19,7 +19,7 @@ jobs:
             DEBIAN_FRONTEND=noninteractive apt-get install -yq  npm && \
             DEBIAN_FRONTEND=noninteractive apt-get install -yq git  && \
             DEBIAN_FRONTEND=noninteractive apt-get install -yq docker && \
-            service docker start
+            systemctl start docker
 
       - run:
           name: Instalar dependências
