@@ -17,7 +17,8 @@ jobs:
             apk update && \
             apk add nodejs && \
             apk add npm && \
-            apk add git
+            apk add git && \
+            apk add docker-ce
 
       - run:
           name: Instalar dependências
