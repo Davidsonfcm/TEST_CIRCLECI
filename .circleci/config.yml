@@ -26,6 +26,17 @@ jobs:
           name: Executar test
           command: npm test
 
+      - run:
+          name: Build Image
+          command: |
+            TAG=$(node -p -e "require('./package.json').version")
+            GIT_TAG=$(git tag -l ${TAG});            
+            docker login -u ${DOCKER_USER} -p ${DOCKER_PASSWORD}
+            echo "construindo imagem `${IMAGE}:${TAG}`" 
+            docker build -t ${DOCKER_IMAGE}:${TAG} .
+            echo "publicando imagem `${IMAGE}:${TAG}`" 
+            docker push ${DOCKER_IMAGE}:${TAG}
+
 workflows:
   version: 2
   automated-deploy-process:
