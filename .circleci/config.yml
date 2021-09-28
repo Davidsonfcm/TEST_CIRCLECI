@@ -3,7 +3,7 @@ version: 2
 defaults: &defaults
   working_directory: ~/test-circleci
   docker:
-    - image: alpine:latest
+    - image: ubuntu:latest
 
 jobs:
   build:
@@ -14,12 +14,11 @@ jobs:
       - run:
           name: Instalar NODE e NPM
           command: |
-            apk update && \
-            apk add nodejs && \
-            apk add npm && \
-            apk add git && \
-            apk add docker openrc && \
-            rc-update add docker boot && \
+            apt-get update && \
+            apt-get install nodejs && \
+            apt-get install  npm && \
+            aapt-get install  git && \
+            apt-get install docker && \
             service docker start
 
       - run:
