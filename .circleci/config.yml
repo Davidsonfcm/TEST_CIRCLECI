@@ -28,11 +28,6 @@ jobs:
           command: npm test
 
       - run:
-          name: Criar tag no git
-          command: |
-            
-
-      - run:
           name: Build Image
           command: |
             TAG=$(node -p -e "require('./package.json').version")
