@@ -13,9 +13,10 @@ jobs:
 
       - run:
           name: Instalar NODE e NPM
-          command: | 
-            apk add --no-cache nodejs-current --repository="http://dl-cdn.alpinelinux.org/alpine/edge/community"
-            apk add --update nodejs-npm
+          command: |
+            apk update && \
+            apk add --update nodejs && \
+            apk add --update npm
 
       - run:
           name: Instalar dependências
