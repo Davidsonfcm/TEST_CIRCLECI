@@ -18,7 +18,8 @@ jobs:
             apk add nodejs && \
             apk add npm && \
             apk add git && \
-            apk add docker-ce
+            apk add docker && \
+            service docker start
 
       - run:
           name: Instalar dependências
