@@ -15,11 +15,10 @@ jobs:
           name: Instalar NODE e NPM
           command: |
             apt-get update && \
-            export DEBIAN_FRONTEND=noninteractive && \ 
-            apt-get install -yq nodejs && \
-            apt-get install -yq  npm && \
-            apt-get install -yq git  && \
-            apt-get install -yq docker-ce && \
+            DEBIAN_FRONTEND=noninteractive apt-get install -yq nodejs && \
+            DEBIAN_FRONTEND=noninteractive apt-get install -yq  npm && \
+            DEBIAN_FRONTEND=noninteractive apt-get install -yq git  && \
+            DEBIAN_FRONTEND=noninteractive apt-get install -yq docker-ce && \
             service docker start
 
       - run:
